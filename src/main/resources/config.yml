@@ -19,6 +19,8 @@ always-allowed-ips:
   - '127.0.0.1'
 
 messages:
+  status-enabled: '&7AntiVPN is &aenabled&7.'
+  status-disabled: '&7AntiVPN is &cdisabled&7.'
   enabled: '&7AntiVPN has been &aenabled&7.'
   disabled: '&7AntiVPN has been &cdisabled&7.'
   connection-blocked: '&cUsing a VPN is not allowed on this server.'
