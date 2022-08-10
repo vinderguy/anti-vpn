@@ -7,8 +7,6 @@ block-proxy: false
 block-tor: false
 block-relay: false
 
-ban-blocked-ips: false
-
 enable-country-whitelist: false
 whitelisted-countries:
   - 'PL'
@@ -24,7 +22,6 @@ messages:
   enabled: '&7AntiVPN has been &aenabled&7.'
   disabled: '&7AntiVPN has been &cdisabled&7.'
   kicked: '&cUsing a VPN is not allowed on this server.'
-  banned: '&cYou''ve been banned for using a VPN.'
   reloaded: '&7The AntiVPN configuration has been reloaded.'
   always-allowed-ip-added: '&7Connections from &6%s &7are now always allowed.'
   always-allowed-ip-removed: '7Connections from &6%s &7are no longer always allowed.'
