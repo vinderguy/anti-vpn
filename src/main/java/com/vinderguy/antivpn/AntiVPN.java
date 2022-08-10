@@ -43,6 +43,10 @@ public final class AntiVPN extends JavaPlugin {
         _alwaysAllowedIPs.addAll(config.getStringList("always-allowed-ips"));
     }
 
+    public boolean isCountryWhitelistEnabled() {
+        return getConfig().getBoolean("enable-country-whitelist");
+    }
+
     public boolean isCountryWhitelisted(@NotNull final String country) {
         return _whitelistedCountries.contains(country);
     }
