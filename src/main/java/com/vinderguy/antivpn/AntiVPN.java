@@ -40,4 +40,8 @@ public final class AntiVPN extends JavaPlugin {
     public boolean isCountryBlacklisted(@NotNull final String country) {
         return _blacklistedCountries.contains(country);
     }
+
+    public boolean isIPAlwaysAllowed(@NotNull final String ip) {
+        return _alwaysAllowedIPs.contains(ip);
+    }
 }
