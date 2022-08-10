@@ -46,10 +46,10 @@ public final class AntiVPN extends JavaPlugin {
     }
 
     public void addAlwaysAllowedIP(@NotNull final String ip) {
-        _alwaysAllowedIPs.add(ip);
-
-        getConfig().set("always-allowed-ips", _alwaysAllowedIPs);
-        saveConfig();
+        if (_alwaysAllowedIPs.add(ip)) {
+            getConfig().set("always-allowed-ips", _alwaysAllowedIPs);
+            saveConfig();
+        }
     }
 
     public void removeAlwaysAllowedIP(@NotNull final String ip) {
