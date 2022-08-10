@@ -25,5 +25,8 @@ messages:
   disabled: '&7AntiVPN has been &cdisabled&7.'
   connection-blocked: '&cUsing a VPN is not allowed on this server.'
   reloaded: '&7The AntiVPN configuration has been reloaded.'
+  exempt-unknown-action: '&cYou need to specify whether you want to add or remove and exempt.'
+  exempt-add-unknown-ip: '&cYou need to specify the IP you want to add exempt for.'
+  exempt-remove-unknown-ip: '&cYou need to specify the IP you want to remove exempt for.'
   always-allowed-ip-added: '&7Connections from &6%s &7are now always allowed.'
   always-allowed-ip-removed: '7Connections from &6%s &7are no longer always allowed.'
