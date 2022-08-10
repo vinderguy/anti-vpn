@@ -24,6 +24,11 @@ public final class AntiVPN extends JavaPlugin {
         saveConfig();
     }
 
+    public void disable() {
+        getConfig().set("enable", false);
+        saveConfig();
+    }
+
     public void reload() {
         reloadConfig();
         final var config = getConfig();
