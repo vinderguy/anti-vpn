@@ -15,6 +15,7 @@ public final class AntiVPN extends JavaPlugin {
     @Override
     public void onEnable() {
         saveDefaultConfig();
+        reload();
     }
 
     public void reload() {
