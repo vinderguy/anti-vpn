@@ -1,0 +1,8 @@
+name: AntiVPN
+version: '${project.version}'
+main: com.vinderguy.antivpn.AntiVPN
+api-version: 1.19
+prefix: AntiVPN
+authors: [ Vinderguy ]
+description: The AntiVPN plugin blocks VPN connections to prevent cheaters from evading bans.
+website: https://github.com/vinderguy/anti-vpn
