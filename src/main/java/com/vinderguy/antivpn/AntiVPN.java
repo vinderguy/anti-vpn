@@ -51,6 +51,10 @@ public final class AntiVPN extends JavaPlugin {
         return _whitelistedCountries.contains(country);
     }
 
+    public boolean isCountryBlacklistEnabled() {
+        return getConfig().getBoolean("enable-country-blacklist");
+    }
+
     public boolean isCountryBlacklisted(@NotNull final String country) {
         return _blacklistedCountries.contains(country);
     }
