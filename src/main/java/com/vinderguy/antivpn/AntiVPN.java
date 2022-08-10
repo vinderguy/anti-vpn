@@ -103,7 +103,7 @@ public final class AntiVPN extends JavaPlugin {
             if (config.getBoolean("block-relay") && securityElement.get("relay").getAsBoolean()) return true;
 
             final var country = rootElement.get("location").getAsJsonObject().get("country_code").getAsString();
-            return (config.getBoolean("enable-country-whitelist") && !isCountryWhitelisted(country) || config.getBoolean("enable-country-blacklist") && isCountryBlacklisted(country));
+            return (isCountryWhitelistEnabled() && !isCountryWhitelisted(country) || isCountryBlacklistEnabled() && isCountryBlacklisted(country));
         } catch (IOException e) {
             return false;
         }
