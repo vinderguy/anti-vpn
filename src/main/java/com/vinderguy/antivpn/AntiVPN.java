@@ -23,6 +23,8 @@ public final class AntiVPN extends JavaPlugin {
     public void onEnable() {
         saveDefaultConfig();
         reload();
+
+        getServer().getPluginManager().registerEvents(new PlayerListener(this), this);
     }
 
     public void enable() {
