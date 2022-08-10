@@ -16,4 +16,18 @@ public final class AntiVPN extends JavaPlugin {
     public void onEnable() {
         saveDefaultConfig();
     }
+
+    public void reload() {
+        reloadConfig();
+        final var config = getConfig();
+
+        _whitelistedCountries.clear();
+        _whitelistedCountries.addAll(config.getStringList("whitelisted-countries"));
+
+        _blacklistedCountries.clear();
+        _blacklistedCountries.addAll(config.getStringList("blacklisted-countries"));
+
+        _alwaysAllowedIPs.clear();
+        _alwaysAllowedIPs.addAll(config.getStringList("always-allowed-ips"));
+    }
 }
