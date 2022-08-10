@@ -1,6 +1,7 @@
 package com.vinderguy.antivpn;
 
 import com.google.gson.JsonParser;
+import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 
@@ -104,5 +105,10 @@ public final class AntiVPN extends JavaPlugin {
         } catch (IOException e) {
             return false;
         }
+    }
+
+    public @NotNull String getMessage(@NotNull final String key) {
+        final var message = getConfig().getString("messages." + key);
+        return message != null ? ChatColor.translateAlternateColorCodes('&', message) : "";
     }
 }
