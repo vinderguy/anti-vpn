@@ -29,4 +29,4 @@ messages:
   exempt-add-unknown-ip: '&cYou need to specify the IP you want to add exempt for.'
   exempt-remove-unknown-ip: '&cYou need to specify the IP you want to remove exempt for.'
   exempt-added: '&7Connections from &6%s &7are now always allowed.'
-  always-allowed-ip-removed: '7Connections from &6%s &7are no longer always allowed.'
+  exempt-removed: '7Connections from &6%s &7are no longer always allowed.'

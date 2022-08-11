@@ -65,7 +65,7 @@ public final class AntiVPNCommandHandler implements CommandExecutor, TabComplete
                 }
 
                 _plugin.removeAlwaysAllowedIP(args[2]);
-                sender.sendMessage(String.format(_plugin.getMessage("always-allowed-ip-removed"), args[2]));
+                sender.sendMessage(String.format(_plugin.getMessage("exempt-removed"), args[2]));
                 return true;
             }
 
