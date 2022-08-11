@@ -84,7 +84,7 @@ public final class AntiVPN extends JavaPlugin {
         }
     }
 
-    public void removeAlwaysAllowedIP(@NotNull final String ip) {
+    public void removeExemptedIP(@NotNull final String ip) {
         if (_exemptedIPs.remove(ip)) {
             getConfig().set("exempted-ips", _exemptedIPs);
             saveConfig();
