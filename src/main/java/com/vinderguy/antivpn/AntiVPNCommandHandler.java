@@ -21,7 +21,7 @@ public final class AntiVPNCommandHandler implements CommandExecutor, TabComplete
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if (args.length == 0) {
-            if (_plugin.getConfig().getBoolean("enable")) sendPredefinedChatMessage(sender, "status-enabled");
+            if (_plugin.isProtectionEnabled()) sendPredefinedChatMessage(sender, "status-enabled");
             else sendPredefinedChatMessage(sender, "status-disabled");
 
             return true;
