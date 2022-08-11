@@ -96,7 +96,7 @@ public final class AntiVPN extends JavaPlugin {
 
             final var country = rootObject.get("location").getAsJsonObject().get("country_code").getAsString();
             return (isCountryWhitelistEnabled() && !isCountryWhitelisted(country) || isCountryBlacklistEnabled() && isCountryBlacklisted(country));
-        } catch (final Exception e) {
+        } catch (@NotNull final Exception e) {
             getLogger().warning(String.format("Failed to verify IP: \"%s\". Error: %s", ip, e.getMessage()));
             return false;
         }
