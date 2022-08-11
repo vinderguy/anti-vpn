@@ -15,7 +15,7 @@ enable-country-blacklist: false
 blacklisted-countries:
   - 'RU'
 
-always-allowed-ips:
+exempted-ips:
   - '127.0.0.1'
 
 messages:

@@ -54,7 +54,7 @@ public final class AntiVPN extends JavaPlugin {
         _blacklistedCountries.addAll(config.getStringList("blacklisted-countries"));
 
         _alwaysAllowedIPs.clear();
-        _alwaysAllowedIPs.addAll(config.getStringList("always-allowed-ips"));
+        _alwaysAllowedIPs.addAll(config.getStringList("exempted-ips"));
     }
 
     public boolean isCountryWhitelistEnabled() {
@@ -79,14 +79,14 @@ public final class AntiVPN extends JavaPlugin {
 
     public void addAlwaysAllowedIP(@NotNull final String ip) {
         if (_alwaysAllowedIPs.add(ip)) {
-            getConfig().set("always-allowed-ips", _alwaysAllowedIPs);
+            getConfig().set("exempted-ips", _alwaysAllowedIPs);
             saveConfig();
         }
     }
 
     public void removeAlwaysAllowedIP(@NotNull final String ip) {
         if (_alwaysAllowedIPs.remove(ip)) {
-            getConfig().set("always-allowed-ips", _alwaysAllowedIPs);
+            getConfig().set("exempted-ips", _alwaysAllowedIPs);
             saveConfig();
         }
     }
