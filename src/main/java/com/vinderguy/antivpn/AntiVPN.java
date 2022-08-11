@@ -74,11 +74,15 @@ public final class AntiVPN extends JavaPlugin {
         return false;
     }
 
-    public void removeExemptedIP(@NotNull final String ip) {
+    public boolean removeExemptedIP(@NotNull final String ip) {
         if (_exemptedIPs.remove(ip)) {
             getConfig().set("exempted-ips", List.copyOf(_exemptedIPs));
             saveConfig();
+
+            return true;
         }
+
+        return false;
     }
 
     public boolean isIPBlocked(@NotNull final String ip) {
