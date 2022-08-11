@@ -89,6 +89,7 @@ public final class AntiVPN extends JavaPlugin {
 
     public boolean isIPBlocked(@NotNull final String ip) {
         if (isIPExempted(ip)) return false;
+        if (_cachedBlockedIPs.contains(ip)) return true;
 
         try {
             final var config = getConfig();
