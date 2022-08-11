@@ -6,3 +6,18 @@ prefix: AntiVPN
 authors: [ Vinderguy ]
 description: The AntiVPN plugin blocks VPN connections to prevent cheaters from evading bans.
 website: https://github.com/vinderguy/anti-vpn
+commands:
+  antivpn:
+    aliases: [ avpn ]
+    permission: antivpn.commands
+    description: Displays AntiVPN status.
+    usage: /<command>
+permissions:
+  antivpn.*:
+    default: op
+    description: Allows to use all AntiVPN features and commands.
+    children:
+      antivpn.commands: true
+  antivpn.commands:
+    default: op
+    description: Allows to use AntiVPN commands.
