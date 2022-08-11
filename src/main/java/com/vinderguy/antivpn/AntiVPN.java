@@ -63,11 +63,15 @@ public final class AntiVPN extends JavaPlugin {
         return _exemptedIPs.contains(ip);
     }
 
-    public void addExemptedIP(@NotNull final String ip) {
+    public boolean addExemptedIP(@NotNull final String ip) {
         if (_exemptedIPs.add(ip)) {
             getConfig().set("exempted-ips", List.copyOf(_exemptedIPs));
             saveConfig();
+
+            return true;
         }
+
+        return false;
     }
 
     public void removeExemptedIP(@NotNull final String ip) {
