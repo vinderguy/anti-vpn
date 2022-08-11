@@ -53,8 +53,9 @@ public final class AntiVPNCommandHandler implements CommandExecutor, TabComplete
                     return true;
                 }
 
-                _plugin.addExemptedIP(args[2]);
-                sender.sendMessage(String.format(_plugin.getMessage("exempt-added"), args[2]));
+                if (_plugin.addExemptedIP(args[2])) sender.sendMessage(String.format(_plugin.getMessage("exempt-added"), args[2]));
+                else sendPredefinedMessage(sender, "exempt-already-added");
+
                 return true;
             }
 
