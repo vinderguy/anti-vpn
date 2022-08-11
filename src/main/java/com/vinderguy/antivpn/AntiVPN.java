@@ -73,7 +73,7 @@ public final class AntiVPN extends JavaPlugin {
         return _blacklistedCountries.contains(country);
     }
 
-    public boolean isIPAlwaysAllowed(@NotNull final String ip) {
+    public boolean isIPExempted(@NotNull final String ip) {
         return _exemptedIPs.contains(ip);
     }
 
@@ -92,7 +92,7 @@ public final class AntiVPN extends JavaPlugin {
     }
 
     public boolean isIPBlocked(@NotNull final String ip) {
-        if (isIPAlwaysAllowed(ip)) return false;
+        if (isIPExempted(ip)) return false;
 
         try {
             final var config = getConfig();
