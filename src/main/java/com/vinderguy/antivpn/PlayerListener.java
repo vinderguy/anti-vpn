@@ -17,6 +17,6 @@ public final class PlayerListener implements Listener {
 
     @EventHandler(priority = EventPriority.NORMAL, ignoreCancelled = true)
     public void onPlayerLogin(@NotNull final AsyncPlayerPreLoginEvent e) {
-        if (_plugin.isIPBlocked(e.getHostname())) e.disallow(AsyncPlayerPreLoginEvent.Result.KICK_BANNED, Component.text(_plugin.getMessage("connection-blocked")));
+        if (_plugin.isProtectionEnabled() && _plugin.isIPBlocked(e.getHostname())) e.disallow(AsyncPlayerPreLoginEvent.Result.KICK_BANNED, Component.text(_plugin.getMessage("connection-blocked")));
     }
 }
