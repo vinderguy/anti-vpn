@@ -21,6 +21,8 @@ public final class AntiVPN extends JavaPlugin {
 
     private final HashSet<String> _cachedBlockedIPs = new HashSet<>();
 
+    private final HashSet<String> _cachedAllowedIPs = new HashSet<>();
+
     @Override
     public void onEnable() {
         saveDefaultConfig();
