@@ -1,4 +1,4 @@
-enable: true
+enable-protection: true
 
 api-key: 'ENTER YOUR vpnapi.io API KEY'
 
