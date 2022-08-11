@@ -70,6 +70,8 @@ public final class AntiVPN extends JavaPlugin {
 
     public boolean addExemptedIP(@NotNull final String ip) {
         if (_exemptedIPs.add(ip)) {
+            _cachedBlockedIPs.remove(ip);
+
             getConfig().set("exempted-ips", List.copyOf(_exemptedIPs));
             saveConfig();
 
