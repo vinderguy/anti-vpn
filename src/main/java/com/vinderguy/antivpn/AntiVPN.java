@@ -45,6 +45,7 @@ public final class AntiVPN extends JavaPlugin {
 
     public void setProtectionEnabled(final boolean enableProtection) {
         getConfig().set("enable", enableProtection);
+        saveConfig();
     }
 
     public boolean isCountryWhitelistEnabled() {
