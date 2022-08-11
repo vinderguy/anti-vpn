@@ -53,7 +53,7 @@ public final class AntiVPNCommandHandler implements CommandExecutor, TabComplete
                     return true;
                 }
 
-                _plugin.addAlwaysAllowedIP(args[2]);
+                _plugin.addExemptedIP(args[2]);
                 sender.sendMessage(String.format(_plugin.getMessage("exempt-added"), args[2]));
                 return true;
             }
