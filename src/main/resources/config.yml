@@ -20,6 +20,7 @@ exempted-ips:
 
 messages:
   connection-blocked: '&cUsing a VPN is not allowed on this server.'
+  unknown-command: '&cUnknown command. Type /antivpn help to view all AntiVPN commands.'
   status-enabled: '&7AntiVPN is &aenabled&7.'
   status-disabled: '&7AntiVPN is &cdisabled&7.'
   enabled: '&7AntiVPN has been &aenabled&7.'
