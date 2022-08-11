@@ -21,6 +21,8 @@ public final class AntiVPN extends JavaPlugin {
 
     private final HashSet<String> _cachedBlockedIPs = new HashSet<>();
 
+    private final HashSet<String> _cachedAllowedIPs = new HashSet<>();
+
     @Override
     public void onEnable() {
         saveDefaultConfig();
@@ -88,7 +90,7 @@ public final class AntiVPN extends JavaPlugin {
     }
 
     public boolean isIPBlocked(@NotNull final String ip) {
-        if (isIPExempted(ip)) return false;
+        if (isIPExempted(ip) || _cachedAllowedIPs.contains(ip)) return false;
         if (_cachedBlockedIPs.contains(ip)) return true;
 
         try {
@@ -129,6 +131,7 @@ public final class AntiVPN extends JavaPlugin {
             getLogger().warning(String.format("Failed to verify IP: \"%s\". Error: %s", ip, e.getMessage()));
         }
 
+        _cachedAllowedIPs.add(ip);
         return false;
     }
 
@@ -152,5 +155,6 @@ public final class AntiVPN extends JavaPlugin {
         _exemptedIPs.addAll(config.getStringList("exempted-ips"));
 
         _cachedBlockedIPs.clear();
+        _cachedAllowedIPs.clear();
     }
 }
