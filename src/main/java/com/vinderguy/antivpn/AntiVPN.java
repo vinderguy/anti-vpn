@@ -9,6 +9,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.HashSet;
+import java.util.List;
 
 public final class AntiVPN extends JavaPlugin {
 
@@ -64,14 +65,14 @@ public final class AntiVPN extends JavaPlugin {
 
     public void addExemptedIP(@NotNull final String ip) {
         if (_exemptedIPs.add(ip)) {
-            getConfig().set("exempted-ips", _exemptedIPs);
+            getConfig().set("exempted-ips", List.copyOf(_exemptedIPs));
             saveConfig();
         }
     }
 
     public void removeExemptedIP(@NotNull final String ip) {
         if (_exemptedIPs.remove(ip)) {
-            getConfig().set("exempted-ips", _exemptedIPs);
+            getConfig().set("exempted-ips", List.copyOf(_exemptedIPs));
             saveConfig();
         }
     }
