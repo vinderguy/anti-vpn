@@ -17,7 +17,7 @@ public final class AntiVPN extends JavaPlugin {
 
     private final HashSet<String> _blacklistedCountries = new HashSet<>();
 
-    private final HashSet<String> _alwaysAllowedIPs = new HashSet<>();
+    private final HashSet<String> _exemptedIPs = new HashSet<>();
 
     @Override
     public void onEnable() {
@@ -53,8 +53,8 @@ public final class AntiVPN extends JavaPlugin {
         _blacklistedCountries.clear();
         _blacklistedCountries.addAll(config.getStringList("blacklisted-countries"));
 
-        _alwaysAllowedIPs.clear();
-        _alwaysAllowedIPs.addAll(config.getStringList("exempted-ips"));
+        _exemptedIPs.clear();
+        _exemptedIPs.addAll(config.getStringList("exempted-ips"));
     }
 
     public boolean isCountryWhitelistEnabled() {
@@ -74,19 +74,19 @@ public final class AntiVPN extends JavaPlugin {
     }
 
     public boolean isIPAlwaysAllowed(@NotNull final String ip) {
-        return _alwaysAllowedIPs.contains(ip);
+        return _exemptedIPs.contains(ip);
     }
 
     public void addAlwaysAllowedIP(@NotNull final String ip) {
-        if (_alwaysAllowedIPs.add(ip)) {
-            getConfig().set("exempted-ips", _alwaysAllowedIPs);
+        if (_exemptedIPs.add(ip)) {
+            getConfig().set("exempted-ips", _exemptedIPs);
             saveConfig();
         }
     }
 
     public void removeAlwaysAllowedIP(@NotNull final String ip) {
-        if (_alwaysAllowedIPs.remove(ip)) {
-            getConfig().set("exempted-ips", _alwaysAllowedIPs);
+        if (_exemptedIPs.remove(ip)) {
+            getConfig().set("exempted-ips", _exemptedIPs);
             saveConfig();
         }
     }
