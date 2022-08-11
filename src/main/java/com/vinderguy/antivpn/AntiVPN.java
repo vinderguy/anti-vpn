@@ -25,6 +25,14 @@ public final class AntiVPN extends JavaPlugin {
         reload();
 
         getServer().getPluginManager().registerEvents(new PlayerListener(this), this);
+
+        final var antiVPNCommand = getCommand("antivpn");
+        if (antiVPNCommand != null) {
+            final var antiVPNCommandHandler = new AntiVPNCommandHandler(this);
+
+            antiVPNCommand.setExecutor(antiVPNCommandHandler);
+            antiVPNCommand.setTabCompleter(antiVPNCommandHandler);
+        }
     }
 
     public void enable() {
