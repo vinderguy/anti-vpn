@@ -5,7 +5,6 @@ import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
@@ -96,7 +95,8 @@ public final class AntiVPN extends JavaPlugin {
 
             final var country = rootObject.get("location").getAsJsonObject().get("country_code").getAsString();
             return (isCountryWhitelistEnabled() && !isCountryWhitelisted(country) || isCountryBlacklistEnabled() && isCountryBlacklisted(country));
-        } catch (IOException e) {
+        } catch (final Exception e) {
+            getLogger().warning(String.format("Failed to verify IP: \"%s\". Error: %s", ip, e.getMessage()));
             return false;
         }
     }
