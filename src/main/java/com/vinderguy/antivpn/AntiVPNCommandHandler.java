@@ -97,12 +97,12 @@ public final class AntiVPNCommandHandler implements CommandExecutor, TabComplete
         }
 
         if (args.length == 2 && args[0].equalsIgnoreCase("exempt")) {
-            final var operations = new ArrayList<String>();
+            final var actions = new ArrayList<String>();
 
-            operations.add("add");
-            operations.add("remove");
+            actions.add("add");
+            actions.add("remove");
 
-            return operations;
+            return actions;
         }
 
         return Collections.emptyList();
