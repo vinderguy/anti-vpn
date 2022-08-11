@@ -80,6 +80,7 @@ public final class AntiVPNCommandHandler implements CommandExecutor, TabComplete
             return true;
         }
 
+        sendPredefinedMessage(sender, "unknown-command");
         return true;
     }
 
