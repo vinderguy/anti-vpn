@@ -155,5 +155,6 @@ public final class AntiVPN extends JavaPlugin {
         _exemptedIPs.addAll(config.getStringList("exempted-ips"));
 
         _cachedBlockedIPs.clear();
+        _cachedAllowedIPs.clear();
     }
 }
