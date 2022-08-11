@@ -30,5 +30,6 @@ messages:
   exempt-already-added: '&cConnections from this IP are already exempting AntiVPN.'
   exempt-added: '&7Connections from &6%s &7are now exempting AntiVPN.'
   exempt-remove-unknown-ip: '&cYou need to specify the IP you want to remove exempt for.'
+  exempt-does-not-exist: '&cConnections from this IP haven''t been bypassing AntiVPN.'
   exempt-removed: '&7Connections from &6%s &7are no longer exempting AntiVPN.'
   reloaded: '&7The AntiVPN configuration has been reloaded.'
