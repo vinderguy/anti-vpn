@@ -8,6 +8,7 @@ import org.jetbrains.annotations.NotNull;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 
@@ -134,6 +135,10 @@ public final class AntiVPN extends JavaPlugin {
 
         _cachedAllowedIPs.add(ip);
         return false;
+    }
+
+    public @NotNull Collection<String> getCachedBlockedIPs() {
+        return _cachedBlockedIPs;
     }
 
     public @NotNull String getMessage(@NotNull final String key) {
