@@ -43,20 +43,6 @@ public final class AntiVPN extends JavaPlugin {
         getConfig().set("enable", enableProtection);
     }
 
-    public void reload() {
-        reloadConfig();
-        final var config = getConfig();
-
-        _whitelistedCountries.clear();
-        _whitelistedCountries.addAll(config.getStringList("whitelisted-countries"));
-
-        _blacklistedCountries.clear();
-        _blacklistedCountries.addAll(config.getStringList("blacklisted-countries"));
-
-        _exemptedIPs.clear();
-        _exemptedIPs.addAll(config.getStringList("exempted-ips"));
-    }
-
     public boolean isCountryWhitelistEnabled() {
         return getConfig().getBoolean("enable-country-whitelist");
     }
@@ -118,5 +104,20 @@ public final class AntiVPN extends JavaPlugin {
     public @NotNull String getMessage(@NotNull final String key) {
         final var message = getConfig().getString("messages." + key);
         return message != null ? ChatColor.translateAlternateColorCodes('&', message) : "";
+    }
+
+    public void reload() {
+        reloadConfig();
+
+        final var config = getConfig();
+
+        _whitelistedCountries.clear();
+        _whitelistedCountries.addAll(config.getStringList("whitelisted-countries"));
+
+        _blacklistedCountries.clear();
+        _blacklistedCountries.addAll(config.getStringList("blacklisted-countries"));
+
+        _exemptedIPs.clear();
+        _exemptedIPs.addAll(config.getStringList("exempted-ips"));
     }
 }
