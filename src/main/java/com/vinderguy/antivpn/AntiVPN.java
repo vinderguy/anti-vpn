@@ -131,6 +131,7 @@ public final class AntiVPN extends JavaPlugin {
             getLogger().warning(String.format("Failed to verify IP: \"%s\". Error: %s", ip, e.getMessage()));
         }
 
+        _cachedAllowedIPs.add(ip);
         return false;
     }
 
