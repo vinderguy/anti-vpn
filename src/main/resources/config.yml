@@ -2,10 +2,10 @@ enable-protection: true
 
 api-key: 'ENTER YOUR vpnapi.io API KEY'
 
-block-vpn: true
-block-proxy: false
-block-tor: false
-block-relay: false
+block-vpns: true
+block-proxies: false
+block-tor-nodes: false
+block-relays: false
 
 enable-country-whitelist: false
 whitelisted-countries:
