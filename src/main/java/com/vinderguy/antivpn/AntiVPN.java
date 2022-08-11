@@ -86,15 +86,15 @@ public final class AntiVPN extends JavaPlugin {
 
             request.connect();
 
-            final var rootElement = JsonParser.parseReader(new InputStreamReader((InputStream) request.getContent())).getAsJsonObject();
+            final var rootObject = JsonParser.parseReader(new InputStreamReader((InputStream) request.getContent())).getAsJsonObject();
 
-            final var securityElement = rootElement.get("security").getAsJsonObject();
+            final var securityElement = rootObject.get("security").getAsJsonObject();
             if (config.getBoolean("block-vpns") && securityElement.get("vpn").getAsBoolean()) return true;
             if (config.getBoolean("block-proxies") && securityElement.get("proxy").getAsBoolean()) return true;
             if (config.getBoolean("block-tor-nodes") && securityElement.get("tor").getAsBoolean()) return true;
             if (config.getBoolean("block-relays") && securityElement.get("relay").getAsBoolean()) return true;
 
-            final var country = rootElement.get("location").getAsJsonObject().get("country_code").getAsString();
+            final var country = rootObject.get("location").getAsJsonObject().get("country_code").getAsString();
             return (isCountryWhitelistEnabled() && !isCountryWhitelisted(country) || isCountryBlacklistEnabled() && isCountryBlacklisted(country));
         } catch (IOException e) {
             return false;
