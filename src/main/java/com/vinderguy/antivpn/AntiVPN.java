@@ -44,7 +44,7 @@ public final class AntiVPN extends JavaPlugin {
     }
 
     public void setProtectionEnabled(final boolean enableProtection) {
-        getConfig().set("enable", enableProtection);
+        getConfig().set("enable-protection", enableProtection);
         saveConfig();
     }
 
