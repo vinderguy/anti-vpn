@@ -98,19 +98,38 @@ public final class AntiVPN extends JavaPlugin {
             request.connect();
 
             final var rootObject = JsonParser.parseReader(new InputStreamReader((InputStream) request.getContent())).getAsJsonObject();
-
             final var securityElement = rootObject.get("security").getAsJsonObject();
-            if (config.getBoolean("block-vpns") && securityElement.get("vpn").getAsBoolean()) return true;
-            if (config.getBoolean("block-proxies") && securityElement.get("proxy").getAsBoolean()) return true;
-            if (config.getBoolean("block-tor-nodes") && securityElement.get("tor").getAsBoolean()) return true;
-            if (config.getBoolean("block-relays") && securityElement.get("relay").getAsBoolean()) return true;
+
+            if (config.getBoolean("block-vpns") && securityElement.get("vpn").getAsBoolean()) {
+                _cachedBlockedIPs.add(ip);
+                return true;
+            }
+
+            if (config.getBoolean("block-proxies") && securityElement.get("proxy").getAsBoolean()) {
+                _cachedBlockedIPs.add(ip);
+                return true;
+            }
+
+            if (config.getBoolean("block-tor-nodes") && securityElement.get("tor").getAsBoolean()) {
+                _cachedBlockedIPs.add(ip);
+                return true;
+            }
+
+            if (config.getBoolean("block-relays") && securityElement.get("relay").getAsBoolean()) {
+                _cachedBlockedIPs.add(ip);
+                return true;
+            }
 
             final var country = rootObject.get("location").getAsJsonObject().get("country_code").getAsString();
-            return (isCountryWhitelistEnabled() && !isCountryWhitelisted(country) || isCountryBlacklistEnabled() && isCountryBlacklisted(country));
+            if (isCountryWhitelistEnabled() && !isCountryWhitelisted(country) || isCountryBlacklistEnabled() && isCountryBlacklisted(country)) {
+                _cachedBlockedIPs.add(ip);
+                return true;
+            }
         } catch (@NotNull final Exception e) {
             getLogger().warning(String.format("Failed to verify IP: \"%s\". Error: %s", ip, e.getMessage()));
-            return false;
         }
+
+        return false;
     }
 
     public @NotNull String getMessage(@NotNull final String key) {
