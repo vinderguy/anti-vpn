@@ -28,14 +28,14 @@ public final class AntiVPNCommandHandler implements CommandExecutor, TabComplete
         }
 
         if (args[0].equalsIgnoreCase("enable")) {
-            _plugin.enable();
+            _plugin.setProtectionEnabled(true);
             sendPredefinedChatMessage(sender, "enabled");
 
             return true;
         }
 
         if (args[0].equalsIgnoreCase("disable")) {
-            _plugin.disable();
+            _plugin.setProtectionEnabled(false);
             sendPredefinedChatMessage(sender, "disabled");
 
             return true;
