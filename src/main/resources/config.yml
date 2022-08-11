@@ -26,7 +26,7 @@ messages:
   disabled: '&7AntiVPN has been &cdisabled&7.'
   reloaded: '&7The AntiVPN configuration has been reloaded.'
   exempt-added: '&7Connections from &6%s &7are now exempting AntiVPN.'
-  exempt-removed: '7Connections from &6%s &7are no longer exempting AntiVPN.'
+  exempt-removed: '&7Connections from &6%s &7are no longer exempting AntiVPN.'
   exempt-unknown-action: '&cYou need to specify whether you want to add or remove and exempt.'
   exempt-add-unknown-ip: '&cYou need to specify the IP you want to add exempt for.'
   exempt-remove-unknown-ip: '&cYou need to specify the IP you want to remove exempt for.'
