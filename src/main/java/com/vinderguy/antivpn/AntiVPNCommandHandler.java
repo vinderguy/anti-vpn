@@ -111,7 +111,7 @@ public final class AntiVPNCommandHandler implements CommandExecutor, TabComplete
 
             if (args.length != 3) return Collections.emptyList();
             if (args[1].equalsIgnoreCase("add")) return _plugin.getCachedBlockedIPs();
-            if (args[1].equalsIgnoreCase("remove")) return _plugin.getExemptedPs();
+            if (args[1].equalsIgnoreCase("remove")) return _plugin.getExemptedIPs();
         }
 
         return Collections.emptyList();

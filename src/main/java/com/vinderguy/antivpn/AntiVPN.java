@@ -136,7 +136,7 @@ public final class AntiVPN extends JavaPlugin {
         return false;
     }
 
-    public @NotNull List<String> getExemptedPs() {
+    public @NotNull List<String> getExemptedIPs() {
         return List.copyOf(_exemptedIPs);
     }
 
